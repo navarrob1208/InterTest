@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner, TablesAdapterCallbacks
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         binding.fab.setOnClickListener { view ->
-            if(adapter == null || adapter?.isLoaded() == false){
+            if((adapter == null || adapter?.isLoaded() == false) && viewModel.loading.value == false){
                 viewModel.getQueries()
             }
         }
